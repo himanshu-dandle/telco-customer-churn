@@ -59,7 +59,7 @@ Here are some key visualizations from the analysis:
 ![Confusion Matrix](output/tuned_random_forest_confusion_matrix.png)
 
 ### Feature Importance:
-![Feature Importance](output/feature_importance.png)
+![Feature Importance](output/random_forest_feature_importance.png)
 
 ### ROC-AUC Curve:
 ![ROC-AUC Curve](output/roc_auc_curve.png)
