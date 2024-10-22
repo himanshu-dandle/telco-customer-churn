@@ -62,7 +62,7 @@ Here are some key visualizations from the analysis:
 ![Feature Importance](output/random_forest_feature_importance.png)
 
 ### ROC-AUC Curve:
-![ROC-AUC Curve](output/roc_auc_curve.png)
+![ROC-AUC Curve](output/roc_all_models.png)
 
 These visualizations provide insights into model performance and the importance of key features in predicting customer churn.
 
