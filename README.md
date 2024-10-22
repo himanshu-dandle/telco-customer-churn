@@ -4,7 +4,14 @@ This project aims to predict customer churn using the **Telco Customer Churn** d
 
 ## Project Overview:
 - **Goal**: To identify customers likely to churn based on factors like monthly charges, tenure, contract type, and other demographic and service-related features.
+
 - **Dataset**: The dataset contains customer records from a hypothetical telecom company, including demographics, account details, and usage statistics.
+
+	- **Rows**: 7,043 customers
+	- **Columns**: 21 features including customer demographics, account details, and service usage.
+	- **Target Variable**: `Churn` (whether a customer left the company).
+	- Key features: `tenure`, `MonthlyCharges`, `TotalCharges`, `Contract`
+	
 - **Techniques Used**:
   - **Data Preprocessing**: Handling missing values, encoding categorical variables, and scaling numerical features.
   - **Exploratory Data Analysis (EDA)**: Visualizing important relationships and patterns within the data.
@@ -14,7 +21,7 @@ This project aims to predict customer churn using the **Telco Customer Churn** d
 1. **Data Preprocessing**:
    - Handled missing values (e.g., `TotalCharges`).
    - Converted categorical features into numerical values using one-hot encoding.
-   - Scaled numerical features like `MonthlyCharges`, `tenure`, and `TotalCharges` for model compatibility.
+   - Scaled numerical features like `MonthlyCharges`, `tenure`, and `TotalCharges` for model compatibility.\
    
 2. **Exploratory Data Analysis (EDA)**:
    - Analyzed key features like customer demographics, services, and account information.
