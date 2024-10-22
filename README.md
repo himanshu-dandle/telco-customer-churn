@@ -48,11 +48,33 @@ This project aims to predict customer churn using the **Telco Customer Churn** d
     3. **Contract type**
 
 ## Improvements:
-- **Class Imbalance**: Applied techniques like **class weighting** and **SMOTE** to improve recall for the churn class.
-- **Threshold Tuning**: Adjusted decision threshold to improve churn customer detection.
-- **Hyperparameter Tuning**: Used **RandomizedSearchCV** to fine-tune model parameters for optimal performance.
+- **Class Imbalance**: Applied **SMOTE** to address class imbalance by generating synthetic samples for the minority (churn) class.
+- **Hyperparameter Tuning**: Performed hyperparameter tuning using **RandomizedSearchCV** to improve model performance and ensure the model generalizes well to unseen data.
 
-## How to Run the Project:
+
+## Visualizations:
+Here are some key visualizations from the analysis:
+
+### Confusion Matrix:
+![Confusion Matrix](output/confusion_matrix.png)
+
+### Feature Importance:
+![Feature Importance](output/feature_importance.png)
+
+### ROC-AUC Curve:
+![ROC-AUC Curve](output/roc_auc_curve.png)
+
+These visualizations provide insights into model performance and the importance of key features in predicting customer churn.
+
+## Model Performance Comparison:
+| Model               | Accuracy | Precision | Recall | ROC-AUC |
+|---------------------|----------|-----------|--------|---------|
+| Logistic Regression  | 0.78     | 0.81      | 0.30   | 0.85    |
+| Random Forest        | 0.77     | 0.82      | 0.21   | 0.84    |
+| Gradient Boosting    | 0.79     | 0.83      | 0.25   | 0.86    |
+
+## How to Run:
 1. Clone the repository:
    ```bash
    git clone https://github.com/himanshu-dandle/telco-customer-churn.git
+
