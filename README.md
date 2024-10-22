@@ -56,7 +56,7 @@ This project aims to predict customer churn using the **Telco Customer Churn** d
 Here are some key visualizations from the analysis:
 
 ### Confusion Matrix:
-![Confusion Matrix](output/confusion_matrix.png)
+![Confusion Matrix](output/tuned_random_forest_confusion_matrix.png)
 
 ### Feature Importance:
 ![Feature Importance](output/feature_importance.png)
