@@ -109,14 +109,14 @@ Optimize Hyperparameters: Use techniques like Bayesian optimization to improve p
 Improve Coverage: Focus on increasing diversity in recommendations for a wider variety of items.
 
 ## Setup Instructions
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/himanshu-dandle/telco-customer-churn.git
-2.Install the dependencies:
-	pip install -r requirements.txt
+	1. Clone the repository:
+	```bash
+		git clone https://github.com/himanshu-dandle/telco-customer-churn.git
+	2.Install the dependencies:
+		pip install -r requirements.txt
 	
-3.Run the Jupyter notebook or Python script to train the models:
-	jupyter notebook notebooks/customer_churn_prediction.ipynb
+	3.Run the Jupyter notebook or Python script to train the models:
+		jupyter notebook notebooks/customer_churn_prediction.ipynb
  
 ## Conclusion
 This project demonstrates how to build an end-to-end machine learning pipeline for predicting customer churn. With Random Forest and Gradient Boosting achieving the best performance, further improvements could be made by addressing class imbalance and incorporating additional features.
