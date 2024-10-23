@@ -30,13 +30,13 @@ This project aims to predict customer churn using the **Telco Customer Churn** d
   - **Modeling**: Training several machine learning models and evaluating their performance.
   - 
 ## Project Structure
-customer-churn-prediction/
-    ├── data/                  # Raw dataset
-    ├── notebooks/             # Jupyter notebooks for analysis and modeling
-    ├── output/                # Saved model performance plots, feature importance plots
-    ├── README.md              # Project overview, steps, and results
-    ├── requirements.txt       # Dependencies for the project
-    └── customer_churn_prediction.py # Main Python script for model training
+	customer-churn-prediction/
+	    ├── data/                  # Raw dataset
+	    ├── notebooks/             # Jupyter notebooks for analysis and modeling
+	    ├── output/                # Saved model performance plots, feature importance plots
+	    ├── README.md              # Project overview, steps, and results
+	    ├── requirements.txt       # Dependencies for the project
+	    └── customer_churn_prediction.py # Main Python script for model training
     
 ## Project Steps:
 1. **Data Preprocessing**:
