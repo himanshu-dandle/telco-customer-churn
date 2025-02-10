@@ -36,23 +36,23 @@ telco-customer-churn/ ├── data/ # Dataset storage │ ├── raw/ # Raw
 
 ### 📌 **1️⃣ Learning Curves**  
 Understanding model training performance.  
-![Learning Curves](output/Learning%20Curves.png)
+![Learning Curves](data/output/Learning%20Curves.png)
 
 ### 📌 **2️⃣ Feature Importance (Top Predictors of Churn)**  
 Identifying key factors affecting churn.  
-![Feature Importance](output/feature_importance_xgboost.png)
+![Feature Importance](data/output/feature_importance_xgboost.png)
 
 ### 📌 **3️⃣ Confusion Matrix for XG Boost **  
 Evaluating model classification results.  
-![Confusion Matrix](output/conf_matrix_xgboost.png)
+![Confusion Matrix](data/output/conf_matrix_xgboost.png)
 
 ### 📌 **4️⃣ ROC Curve - All Models Comparison**  
 Comparing AUC scores across multiple models.  
-![ROC All Models](output/roc_all_models.png)
+![ROC All Models](data/output/roc_all_models.png)
 
 ### 📌 **5️⃣ ROC Curve - XGBoost (Best Model)**  
 Performance of the best-performing model.  
-![ROC XGBoost](output/roc_curve_xgboost.png)
+![ROC XGBoost](data/output/roc_curve_xgboost.png)
 
 ---
 
