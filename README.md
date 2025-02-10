@@ -208,17 +208,24 @@ curl -k -X POST "https://telco-churn-api.azurewebsites.net/predict" \
 	git clone https://github.com/himanshu-dandle/telco-customer-churn.git
 	cd telco-customer-churn
 	
-2) Install Dependencies
+2) Set Up Virtual Environment
+	python -m venv venv
+	source venv/bin/activate  # On macOS/Linux
+	venv\Scripts\activate     # On Windows
+
+3) Install Dependencies
 	pip install -r requirements.txt
 	
-3️) Model Training
+4) Model Training
 	python src/customer_churn_prediction.py
 
-4)  Run FastAPI Server
+5)  Run FastAPI Server
 
 	uvicorn deployment.app:app --reload
+	
+6) Visit http://127.0.0.1:8000/docs to test the API.
 
-5) Deploy to Azure
+7) Deploy to Azure
 
 	az webapp up --name telco-churn-api --resource-group MyResourceGroup
 
@@ -228,6 +235,10 @@ Improve Model Performance (Try deep learning models like LSTMs)
 Deploy Interactive Dashboard (Streamlit for real-time churn predictions)
 Enhance API with More Features (Batch predictions, customer segmentation)
 
+
+
+### 📜 License
+This project is open-source and available under the MIT License.
 
 
 
