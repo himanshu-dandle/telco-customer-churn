@@ -8,6 +8,7 @@ import xgboost as xgb
 from logging.handlers import RotatingFileHandler
 from azure.identity import DefaultAzureCredential
 from azure.keyvault.secrets import SecretClient
+import uvicorn  # Ensure uvicorn is imported
 
 # Initialize logging with rotation (5MB per log file, up to 5 backups)
 log_handler = RotatingFileHandler("api_logs.log", maxBytes=5*1024*1024, backupCount=5)
@@ -104,3 +105,8 @@ async def predict_churn(request: Request, data: ChurnRequest, x_api_key: str = H
 @app.get("/")
 async def home():
     return {"message": "Customer Churn Prediction API is running!"}
+
+# ✅ Ensure the API listens on the correct port for Azure deployment
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))  # Read PORT from environment variables
+    uvicorn.run(app, host="0.0.0.0", port=port)
