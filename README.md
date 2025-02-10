@@ -36,7 +36,8 @@ telco-customer-churn/ ├── data/ # Dataset storage │ ├── raw/ # Raw
 
 ### 📌 **1️⃣ Learning Curves**  
 Understanding model training performance.  
-![Learning Curves](/data/output/Learning%20Curves.png)
+![Learning Curve](https://raw.githubusercontent.com/himanshu-dandle/telco-customer-churn/main/data/output/Learning_Curves.png)
+
 
 ### 📌 **2️⃣ Feature Importance (Top Predictors of Churn)**  
 Identifying key factors affecting churn.  
