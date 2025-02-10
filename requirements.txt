@@ -9,3 +9,6 @@ scikit-learn
 xgboost
 matplotlib
 seaborn
+azure-identity
+azure-keyvault-secrets
+
