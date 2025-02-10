@@ -40,11 +40,11 @@ Understanding model training performance.
 
 ### 📌 **2️⃣ Feature Importance (Top Predictors of Churn)**  
 Identifying key factors affecting churn.  
-![Feature Importance](output/random_forest_feature_importance.png)
+![Feature Importance](output/feature_importance_xgboost.png)
 
-### 📌 **3️⃣ Confusion Matrix for Random Forest**  
+### 📌 **3️⃣ Confusion Matrix for XG Boost **  
 Evaluating model classification results.  
-![Confusion Matrix](output/random_forest_confusion_matrix.png)
+![Confusion Matrix](output/conf_matrix_xgboost.png)
 
 ### 📌 **4️⃣ ROC Curve - All Models Comparison**  
 Comparing AUC scores across multiple models.  
@@ -52,7 +52,7 @@ Comparing AUC scores across multiple models.
 
 ### 📌 **5️⃣ ROC Curve - XGBoost (Best Model)**  
 Performance of the best-performing model.  
-![ROC XGBoost](output/roc_xgboost.png)
+![ROC XGBoost](output/roc_curve_xgboost.png)
 
 ---
 
