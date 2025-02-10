@@ -1,0 +1,32 @@
+# Ignore environment files
+churn_env/
+*.env
+
+# Ignore logs
+logs/
+*.log
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore dependencies
+venv/
+*.egg-info/
+*.whl
+
+# Ignore data and model files (optional)
+data/output/
+*.pkl
+*.json
+
+# Ignore Azure deployment settings
+deployment/.azure/
