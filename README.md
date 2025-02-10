@@ -15,20 +15,7 @@ This project aims to **predict customer churn** using the **Telco Customer Churn
 
 ## 📂 Project Structure
 
-telco-customer-churn/
-├── data/                  # Raw dataset & processed files
-├── src/                   # Machine learning model scripts
-│   ├── customer_churn_prediction.py  # Main ML pipeline
-├── notebooks/             # Jupyter notebooks for EDA & experimentation
-├── deployment/            # FastAPI application
-│   ├── app.py             # API script
-├── logs/                  # API logs & application logs
-├── requirements.txt       # Dependencies
-├── README.md              # Project documentation
-├── tests/                 # Unit tests
-└── dashboard/             # Visualization & monitoring (Future Work)
-
-
+telco-customer-churn/ ├── data/ # Dataset storage │ ├── raw/ # Raw data from Kaggle │ └── processed/ # Cleaned and preprocessed data ├── notebooks/ # Jupyter notebooks for EDA and model training ├── src/ # Source code for the project │ ├── init.py │ ├── data_preprocessing.py │ ├── feature_engineering.py │ ├── model_training.py │ ├── model_evaluation.py │ └── api_utils.py ├── deployment/ # API deployment scripts │ ├── app.py # FastAPI application │ ├── Dockerfile # Docker container setup │ └── requirements.txt # Dependencies for deployment ├── logs/ # API logs for debugging ├── output/ # Model performance and visualization results │ ├── Learning Curves.png │ ├── random_forest_confusion_matrix.png │ ├── random_forest_feature_importance.png │ ├── roc_all_models.png │ ├── roc_decision_tree.png │ ├── roc_gradient_boosting.png │ ├── roc_logistic_regression.png │ ├── roc_naive_bayes.png │ ├── roc_random_forest.png │ ├── roc_xgboost.png │ ├── tuned_random_forest_confusion_matrix.png ├── tests/ # Unit tests ├── .gitignore # Files to ignore in Git ├── README.md # Project documentation ├── requirements.txt # Project dependencies └── config.yaml # Configuration file for parameters
 
 ---
 
@@ -43,6 +30,29 @@ telco-customer-churn/
 - **`MonthlyCharges`** - Amount charged per month  
 - **`TotalCharges`** - Total amount charged  
 - **`Contract`** - Type of contract (Month-to-month, One year, Two years)  
+
+
+## 📈 **Key Visualizations**
+
+### 📌 **1️⃣ Learning Curves**  
+Understanding model training performance.  
+![Learning Curves](output/Learning%20Curves.png)
+
+### 📌 **2️⃣ Feature Importance (Top Predictors of Churn)**  
+Identifying key factors affecting churn.  
+![Feature Importance](output/random_forest_feature_importance.png)
+
+### 📌 **3️⃣ Confusion Matrix for Random Forest**  
+Evaluating model classification results.  
+![Confusion Matrix](output/random_forest_confusion_matrix.png)
+
+### 📌 **4️⃣ ROC Curve - All Models Comparison**  
+Comparing AUC scores across multiple models.  
+![ROC All Models](output/roc_all_models.png)
+
+### 📌 **5️⃣ ROC Curve - XGBoost (Best Model)**  
+Performance of the best-performing model.  
+![ROC XGBoost](output/roc_xgboost.png)
 
 ---
 
