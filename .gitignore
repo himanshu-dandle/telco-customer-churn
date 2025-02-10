@@ -25,6 +25,9 @@ venv/
 
 # Ignore data and model files (optional)
 data/output/
+!data/output/*.png   # Allow images
+!data/output/*.jpg   # Allow JPEGs
+!data/output/.gitkeep  # Allow a placeholder file
 *.pkl
 *.json
 
