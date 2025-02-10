@@ -15,39 +15,40 @@ This project aims to **predict customer churn** using the **Telco Customer Churn
 
 ## 📂 Project Structure
 
-📦 telco-customer-churn/
-│
-├── 📂 .azure/               # Azure-related deployment files
-├── 📂 churn_env/            # Virtual environment (should be in .gitignore)
-├── 📂 dashboard/            # Likely a Streamlit or dashboard-related module
-├── 📂 data/                 # Dataset storage
-│   ├── 📂 raw/              # Raw data from Kaggle
-│   ├── 📂 processed/        # Cleaned and preprocessed data
-│   └── 📂 output/           # Model performance & visualization results
-│
-├── 📂 deployment/           # API deployment scripts
-│   ├── Dockerfile           # Docker container setup
-│   ├── requirements.txt     # Dependencies for deployment
-│
-├── 📂 logs/                 # API logs for debugging
-│
-├── 📂 notebooks/            # Jupyter notebooks for EDA and model training
-│   ├── customer_churn_prediction.ipynb
-│
-├── 📂 src/                  # Source code for ML pipeline
-│   ├── app.py               # FastAPI application
-│   ├── model_training.py    # (If exists, otherwise remove)
-│   ├── model_evaluation.py  # (If exists, otherwise remove)
-│   ├── api_utils.py         # (If exists, otherwise remove)
-│
-├── 📂 tests/                # Unit tests (currently empty)
-│
-├── 📂 __pycache__/          # Compiled Python files (should be in .gitignore)
-│
-├── .gitignore               # Files to ignore in Git
-├── README.md                # Project documentation
-├── requirements.txt         # Project dependencies
-└── main.py                  # Main script (if needed)
+	telco-customer-churn/
+	│
+	├── .azure/                 # Azure-related deployment files
+	├── churn_env/              # Virtual environment (should be in .gitignore)
+	├── dashboard/              # Streamlit or dashboard-related module (if applicable)
+	│
+	├── data/                   # Dataset storage
+	│   ├── raw/                # Raw data from Kaggle
+	│   ├── processed/          # Cleaned and preprocessed data
+	│   └── output/             # Model performance & visualization results
+	│
+	├── deployment/             # API deployment scripts
+	│   ├── Dockerfile          # Docker container setup
+	│   ├── requirements.txt    # Dependencies for deployment
+	│
+	├── logs/                   # API logs for debugging
+	│
+	├── notebooks/              # Jupyter notebooks for EDA and model training
+	│   ├── customer_churn_prediction.ipynb
+	│
+	├── src/                    # Source code for ML pipeline
+	│   ├── app.py              # FastAPI application
+	│   ├── model_training.py   # Model training script (if applicable)
+	│   ├── model_evaluation.py # Model evaluation script (if applicable)
+	│   ├── api_utils.py        # API helper functions (if applicable)
+	│
+	├── tests/                  # Unit tests (currently empty)
+	│
+	├── __pycache__/            # Compiled Python files (should be in .gitignore)
+	│
+	├── .gitignore              # Files to ignore in Git
+	├── README.md               # Project documentation
+	├── requirements.txt        # Project dependencies
+	└── main.py                 # Main script (if needed)
 
 ---
 
