@@ -28,22 +28,30 @@ try:
     secret_client = SecretClient(vault_url=keyvault_url, credential=credential)
     API_KEY = secret_client.get_secret(SECRET_NAME).value.strip()
 
-    logging.info(f"Successfully retrieved API Key: {API_KEY[:5]}****")  # Hide full key for security
+    if API_KEY:
+        logging.info(f"Successfully retrieved API Key: {API_KEY[:5]}****")  # Mask key for security
+    else:
+        logging.error("API Key is empty. Check Azure Key Vault.")
 except Exception as e:
     logging.error(f"Failed to fetch API Key from Key Vault: {str(e)}")
     API_KEY = None  # Ensure it remains None on failure
 
 # Load the XGBoost model
-MODEL_PATH = "/app/data/output/xgboost_model_v5.json"  # Adjusted for Azure App Service file structure
+MODEL_PATH = "/app/data/output/xgboost_model_v5.json"
 model = None
-try:
-    logging.info(f"Loading model from {MODEL_PATH}...")
-    model = xgb.Booster()
-    model.load_model(MODEL_PATH)
-    logging.info("Model loaded successfully.")
-except Exception as e:
-    logging.error(f"Error loading XGBoost model: {str(e)}")
-    model = None  # Ensure it's explicitly set to None on failure
+
+# Check if the model file exists
+if not os.path.exists(MODEL_PATH):
+    logging.error(f"Model file not found at {MODEL_PATH}. Check deployment.")
+else:
+    try:
+        logging.info(f"Loading model from {MODEL_PATH}...")
+        model = xgb.Booster()
+        model.load_model(MODEL_PATH)
+        logging.info("Model loaded successfully.")
+    except Exception as e:
+        logging.error(f"Error loading XGBoost model: {str(e)}")
+        model = None  # Ensure it's explicitly set to None on failure
 
 # Define request body
 class ChurnRequest(BaseModel):
@@ -72,14 +80,27 @@ async def predict_churn(request: Request, data: ChurnRequest, x_api_key: str = H
     
     try:
         if model is None:
-            raise ValueError("Model is not loaded properly!")
+            logging.error("Prediction failed: Model is not loaded.")
+            raise HTTPException(status_code=500, detail="Model is not loaded properly!")
 
+        # Convert request to DataFrame
         df = pd.DataFrame([data.dict()])
+        
+        # Log input data
+        logging.info(f"Received prediction request: {df.to_dict(orient='records')}")
+
+        # Convert to DMatrix for XGBoost
         dtest = xgb.DMatrix(df)
+        
+        # Make prediction
         probability = float(model.predict(dtest)[0])
+        churn_prediction = 1 if probability > 0.5 else 0
+
+        # Log prediction result
+        logging.info(f"Prediction: {churn_prediction}, Probability: {round(probability, 4)}")
 
         return {
-            "churn_prediction": 1 if probability > 0.5 else 0,
+            "churn_prediction": churn_prediction,
             "churn_probability": round(probability, 4),
             "response_time": round(time.time() - start_time, 4)
         }
