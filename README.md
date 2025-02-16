@@ -2,14 +2,15 @@
 
 ## 📝 Project Overview
 This project aims to **predict customer churn** using the **Telco Customer Churn** dataset from [Kaggle](https://www.kaggle.com/blastchar/telco-customer-churn). The goal is to **identify customers likely to leave** and enable proactive retention strategies. This is an **end-to-end machine learning pipeline** covering:
+✅ Data Exploration (EDA)
+✅ Data Preprocessing (Handling missing values, encoding, scaling)
+✅ Model Training & Hyperparameter Tuning
+✅ Feature Selection & Feature Importance Analysis
+✅ API Development (FastAPI & Uvicorn)
+✅ Cloud Deployment (Azure Web Apps, Azure Container Registry, Azure Key Vault)
+✅ Model Performance Evaluation
 
-✅ **Data Exploration** (EDA)  
-✅ **Data Preprocessing** (Handling missing values, encoding, scaling)  
-✅ **Model Training & Hyperparameter Tuning**  
-✅ **Feature Selection & Feature Importance Analysis**  
-✅ **API Development** (FastAPI & Uvicorn)  
-✅ **Cloud Deployment** (Azure Web Apps, Azure Key Vault)  
-✅ **Model Performance Evaluation**  
+
 
 ---
 
@@ -125,9 +126,9 @@ Performance of the best-performing model.
 **FastAPI-based REST API** for churn prediction.
 
 ### 📌 **Endpoints**
-| Method | Endpoint  | Description |
-|--------|----------|-------------|
-| GET    | `/`      | API Health Check |
+| Method | Endpoint   | Description |
+|--------|----------- |-------------|
+| GET    | `/`        | API Health Check |
 | POST   | `/predict` | Predicts if a customer will churn |
 
 ### 🔐 **API Security**
@@ -156,28 +157,68 @@ curl -k -X POST "https://telco-churn-api.azurewebsites.net/predict" \
 }
 
 
+### How to Run Locally
+1️⃣ Clone the Repository
+
+git clone https://github.com/your-username/telco-customer-churn.git
+cd telco-customer-churn
+2️⃣ Create & Activate Virtual Environment
+
+python -m venv venv
+source venv/bin/activate  # On macOS/Linux
+venv\Scripts\activate     # On 
+
+3️⃣ Install Dependencies
+
+pip install -r requirements.
+
+4️⃣ Run the FastAPI Server
+uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+5️⃣ Test API in Browser or Postman
+Open: http://127.0.0.1:8000/docs to test the API interactively.
+
+
 ### **Azure Deployment**
 
-1. Azure Key Vault (For API Key Security)
-	Step 1: Create Azure Key Vault
-		az keyvault create --name YourKeyVault --resource-group MyResourceGroup --location region
-		
-	Step 2: Store API Key in Key Vault
-		az keyvault secret set --vault-name YourKeyVault --name API-KEY --value "your_api_key_here"
-		
-	
-	Step 3: Retrieve API Key in Python
-	
-		import os
-		from azure.identity import DefaultAzureCredential
-		from azure.keyvault.secrets import SecretClient
+1️⃣ Build & Push Docker Image to Azure Container Registry (ACR)
 
-		vault_url = "https://himanshukeyvault.vault.azure.net/"
-		credential = DefaultAzureCredential()
-		client = SecretClient(vault_url, credential)
+# Login to Azure
+az login
 
-		API_KEY = client.get_secret("API-KEY").value
-		os.environ["API_KEY"] = API_KEY
+# Set variables
+ACR_NAME=himanshuacr
+IMAGE_NAME=churn-api
+RESOURCE_GROUP=MyResourceGroup
+
+# Login to ACR
+az acr login --name $ACR_NAME
+
+# Build & Push the Docker image
+docker build -t $ACR_NAME.azurecr.io/$IMAGE_NAME:latest .
+docker push $ACR_NAME.azurecr.io/$IMAGE_NAME:latest
+
+2️⃣ Deploy the Container to Azure Web 
+
+# Create an Azure Web App with Docker container
+az webapp create --resource-group $RESOURCE_GROUP --plan MyAppServicePlan \
+    --name telco-churn-api --deployment-container-image-name $ACR_NAME.azurecr.io/$IMAGE_NAME:latest
+
+# Set ACR authentication for the Web App
+az webapp config container set --name telco-churn-api --resource-group $RESOURCE_GROUP \
+    --docker-custom-image-name $ACR_NAME.azurecr.io/$IMAGE_NAME:latest \
+    --docker-registry-server-url https://$ACR_NAME.azurecr.io \
+    --docker-registry-server-user <YOUR_ACR_USERNAME> \
+    --docker-registry-server-password <YOUR_ACR_PASSWORD>
+
+# Restart the Web App
+az webapp restart --name telco-churn-api --resource-group $RESOURCE_GROUP
+
+3️⃣ Verify 
+az webapp show --name telco-churn-api --resource-group $RESOURCE_GROUP --query "defaultHostName"
+
+
+Your API should now be live at:
+https://telco-churn-api.azurewebsites.net/docs
 
 
 ### **Model Performance**
@@ -202,32 +243,6 @@ curl -k -X POST "https://telco-churn-api.azurewebsites.net/predict" \
 
 🔹 ROC-AUC Curve
 
-
-### How to Run Locally
-1) Clone Repository
-	git clone https://github.com/himanshu-dandle/telco-customer-churn.git
-	cd telco-customer-churn
-	
-2) Set Up Virtual Environment
-	python -m venv venv
-	source venv/bin/activate  # On macOS/Linux
-	venv\Scripts\activate     # On Windows
-
-3) Install Dependencies
-	pip install -r requirements.txt
-	
-4) Model Training
-	python src/customer_churn_prediction.py
-
-5)  Run FastAPI Server
-
-	uvicorn deployment.app:app --reload
-	
-6) Visit http://127.0.0.1:8000/docs to test the API.
-
-7) Deploy to Azure
-
-	az webapp up --name telco-churn-api --resource-group MyResourceGroup
 
 
 ### Future Work

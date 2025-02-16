@@ -1,31 +1,21 @@
-# Ignore environment files
-churn_env/
-*.env
+# Ignore virtual environments  
+churn_env/  
+venv/  
 
-# Ignore logs
-logs/
-*.log
+# Ignore system logs and temporary files  
+logs/  
+*.log  
+api_logs.log  
+exporting  
+auth  
+internal  
 
-# Ignore compiled Python files
-__pycache__/
-*.pyc
-*.pyo
+# Ignore environment files (API keys, secrets)  
+.env  
 
-# Ignore Jupyter notebook checkpoints
-.ipynb_checkpoints/
+# Ignore compiled Python files  
+*.pyc  
+__pycache__/  
 
-# Ignore system files
-.DS_Store
-Thumbs.db
-
-# Ignore dependencies
-venv/
-*.egg-info/
-*.whl
-
-
-*.pkl
-*.json
-
-# Ignore Azure deployment settings
-deployment/.azure/
+# Ignore Jupyter Notebook checkpoints  
+.ipynb_checkpoints/  

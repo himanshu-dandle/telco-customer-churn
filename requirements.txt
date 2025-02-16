@@ -11,4 +11,3 @@ matplotlib
 seaborn
 azure-identity
 azure-keyvault-secrets
-
