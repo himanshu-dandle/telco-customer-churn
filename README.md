@@ -13,7 +13,7 @@ This project aims to **predict customer churn** using the **Telco Customer Churn
 ---
 
 ## 📂 Project Structure
-
+```
 telco-customer-churn/
 │
 ├── .azure/                 # Azure-related deployment files
@@ -49,7 +49,7 @@ telco-customer-churn/
 ├── README.md               # Project documentation
 ├── requirements.txt        # Project dependencies
 └── main.py                 # Main script (if needed)
-
+```
 ---
 
 ## 📊 Dataset Overview
@@ -224,18 +224,19 @@ https://telco-churn-api.azurewebsites.net/docs
 In addition to the API, an interactive dashboard built with React and TypeScript is provided to visualize churn analysis data.
 
 # Dashboard Setup
-	Navigate to the Dashboard Folder:
+	1. Navigate to the Dashboard Folder:
 		cd dashboard-react
-	Install Dependencies:
+	2. Install Dependencies:
 		npm install
-	Start the Development Server:
-	npm start
+	3. Start the Development Server:
+		npm start
 
 This will open the dashboard in your browser at http://localhost:3000. The dashboard currently displays a header and a static churn rate, which serves as a placeholder for future dynamic data integration.
 Dashboard Overview
 Header: "Telco Customer Churn Dashboard"
 Static Data: Displays a churn rate (currently 15.5%)
-#Future Enhancements:
+
+# Future Enhancements:
 Integrate dynamic data from the churn analysis pipeline (e.g., via a JSON file or API).
 Add interactive visualizations using charting libraries such as Chart.js or Recharts.
 
