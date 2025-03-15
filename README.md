@@ -174,37 +174,42 @@ Open: http://127.0.0.1:8000/docs to test the API interactively.
 
 ### **Azure Deployment**
 
-🔹 Build & Push Docker Image to Azure Container Registry (ACR)
-	1. Login to Azure
-		az login
-	2. Set variables
-		🔹 ACR_NAME=himanshuacr
-		🔹 IMAGE_NAME=churn-api
-		🔹 RESOURCE_GROUP=MyResourceGroup
-	3. Login to ACR
-		az acr login --name $ACR_NAME
-	4. Build & Push the Docker image
-		docker build -t $ACR_NAME.azurecr.io/$IMAGE_NAME:latest .
-		docker push $ACR_NAME.azurecr.io/$IMAGE_NAME:latest
- 
-🔹 Deploy the Container to Azure Web 
-	1. Create an Azure Web App with Docker container
-			az webapp create --resource-group $RESOURCE_GROUP --plan MyAppServicePlan \
-			--name telco-churn-api --deployment-container-image-name $ACR_NAME.azurecr.io/$IMAGE_NAME:latest
-🔹 Set ACR authentication for the Web App
-		az webapp config container set --name telco-churn-api --resource-group $RESOURCE_GROUP \
-			--docker-custom-image-name $ACR_NAME.azurecr.io/$IMAGE_NAME:latest \
-			--docker-registry-server-url https://$ACR_NAME.azurecr.io \
-			--docker-registry-server-user <YOUR_ACR_USERNAME> \
-			--docker-registry-server-password <YOUR_ACR_PASSWORD>
-🔹 Restart the Web App
-	1. az webapp restart --name telco-churn-api --resource-group $RESOURCE_GROUP
-🔹 Verify 
-	az webapp show --name telco-churn-api --resource-group $RESOURCE_GROUP --query "defaultHostName"
-	
-🔹 Your API should now be live at:
-	https://telco-churn-api.azurewebsites.net/docs
+**🔹 Build & Push Docker Image to Azure Container Registry (ACR)**
 
+1. **Login to Azure:**
+   
+   az login
+
+2. Set variables:
+
+	ACR_NAME=himanshuacr
+	IMAGE_NAME=churn-api
+	RESOURCE_GROUP=MyResourceGroup
+	
+3. Login to ACR:
+	az acr login --name $ACR_NAME
+4. Build & Push the Docker image:
+	docker build -t $ACR_NAME.azurecr.io/$IMAGE_NAME:latest .
+	docker push $ACR_NAME.azurecr.io/$IMAGE_NAME:latest
+
+**🔹 Deploy the Container to Azure Web**
+
+1. Create an Azure Web App with Docker container:
+	az webapp create --resource-group $RESOURCE_GROUP --plan MyAppServicePlan \
+	--name telco-churn-api --deployment-container-image-name $ACR_NAME.azurecr.io/$IMAGE_NAME:latest
+2. Set ACR authentication for the Web App:
+	az webapp config container set --name telco-churn-api --resource-group $RESOURCE_GROUP \
+	--docker-custom-image-name $ACR_NAME.azurecr.io/$IMAGE_NAME:latest \
+	--docker-registry-server-url https://$ACR_NAME.azurecr.io \
+	--docker-registry-server-user <YOUR_ACR_USERNAME> \
+	--docker-registry-server-password <YOUR_ACR_PASSWORD>
+3. Restart the Web App:
+	az webapp restart --name telco-churn-api --resource-group $RESOURCE_GROUP
+4. Verify the Deployment:
+	az webapp show --name telco-churn-api --resource-group $RESOURCE_GROUP --query "defaultHostName"
+
+***🔹 Your API should now be live at**
+	https://telco-churn-api.azurewebsites.net/docs
 
 ###  **Dashboard Integration**
 In addition to the API, an interactive dashboard built with React and TypeScript is provided to visualize churn analysis data.
