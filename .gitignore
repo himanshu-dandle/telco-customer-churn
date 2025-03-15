@@ -19,3 +19,7 @@ __pycache__/
 
 # Ignore Jupyter Notebook checkpoints  
 .ipynb_checkpoints/  
+
+# Ignore React dashboard dependencies and build artifacts  
+dashboard-react/node_modules/  
+dashboard-react/build/

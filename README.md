@@ -2,54 +2,53 @@
 
 ## 📝 Project Overview
 This project aims to **predict customer churn** using the **Telco Customer Churn** dataset from [Kaggle](https://www.kaggle.com/blastchar/telco-customer-churn). The goal is to **identify customers likely to leave** and enable proactive retention strategies. This is an **end-to-end machine learning pipeline** covering:
-✅ Data Exploration (EDA)
-✅ Data Preprocessing (Handling missing values, encoding, scaling)
-✅ Model Training & Hyperparameter Tuning
-✅ Feature Selection & Feature Importance Analysis
-✅ API Development (FastAPI & Uvicorn)
-✅ Cloud Deployment (Azure Web Apps, Azure Container Registry, Azure Key Vault)
+✅ Data Exploration (EDA)  
+✅ Data Preprocessing (Handling missing values, encoding, scaling)  
+✅ Model Training & Hyperparameter Tuning  
+✅ Feature Selection & Feature Importance Analysis  
+✅ API Development (FastAPI & Uvicorn)  
+✅ Cloud Deployment (Azure Web Apps, Azure Container Registry, Azure Key Vault)  
 ✅ Model Performance Evaluation
-
-
 
 ---
 
 ## 📂 Project Structure
 
-	telco-customer-churn/
-	│
-	├── .azure/                 # Azure-related deployment files
-	├── churn_env/              # Virtual environment (should be in .gitignore)
-	├── dashboard/              # Streamlit or dashboard-related module (if applicable)
-	│
-	├── data/                   # Dataset storage
-	│   ├── raw/                # Raw data from Kaggle
-	│   ├── processed/          # Cleaned and preprocessed data
-	│   └── output/             # Model performance & visualization results
-	│
-	├── deployment/             # API deployment scripts
-	│   ├── Dockerfile          # Docker container setup
-	│   ├── requirements.txt    # Dependencies for deployment
-	│
-	├── logs/                   # API logs for debugging
-	│
-	├── notebooks/              # Jupyter notebooks for EDA and model training
-	│   ├── customer_churn_prediction.ipynb
-	│
-	├── src/                    # Source code for ML pipeline
-	│   ├── app.py              # FastAPI application
-	│   ├── model_training.py   # Model training script (if applicable)
-	│   ├── model_evaluation.py # Model evaluation script (if applicable)
-	│   ├── api_utils.py        # API helper functions (if applicable)
-	│
-	├── tests/                  # Unit tests (currently empty)
-	│
-	├── __pycache__/            # Compiled Python files (should be in .gitignore)
-	│
-	├── .gitignore              # Files to ignore in Git
-	├── README.md               # Project documentation
-	├── requirements.txt        # Project dependencies
-	└── main.py                 # Main script (if needed)
+telco-customer-churn/
+│
+├── .azure/                 # Azure-related deployment files
+├── churn_env/              # Virtual environment (should be in .gitignore)
+├── dashboard/              # Streamlit or dashboard-related module (if applicable)
+├── dashboard-react/        # React & TypeScript dashboard for visualizing churn data
+│
+├── data/                   # Dataset storage
+│   ├── raw/                # Raw data from Kaggle
+│   ├── processed/          # Cleaned and preprocessed data
+│   └── output/             # Model performance & visualization results
+│
+├── deployment/             # API deployment scripts
+│   ├── Dockerfile          # Docker container setup
+│   ├── requirements.txt    # Dependencies for deployment
+│
+├── logs/                   # API logs for debugging
+│
+├── notebooks/              # Jupyter notebooks for EDA and model training
+│   ├── customer_churn_prediction.ipynb
+│
+├── src/                    # Source code for ML pipeline
+│   ├── app.py              # FastAPI application
+│   ├── model_training.py   # Model training script (if applicable)
+│   ├── model_evaluation.py # Model evaluation script (if applicable)
+│   ├── api_utils.py        # API helper functions (if applicable)
+│
+├── tests/                  # Unit tests (currently empty)
+│
+├── __pycache__/            # Compiled Python files (should be in .gitignore)
+│
+├── .gitignore              # Files to ignore in Git
+├── README.md               # Project documentation
+├── requirements.txt        # Project dependencies
+└── main.py                 # Main script (if needed)
 
 ---
 
@@ -219,6 +218,27 @@ az webapp show --name telco-churn-api --resource-group $RESOURCE_GROUP --query "
 
 Your API should now be live at:
 https://telco-churn-api.azurewebsites.net/docs
+
+
+###  **Dashboard Integration**
+In addition to the API, an interactive dashboard built with React and TypeScript is provided to visualize churn analysis data.
+
+# Dashboard Setup
+	Navigate to the Dashboard Folder:
+		cd dashboard-react
+	Install Dependencies:
+		npm install
+	Start the Development Server:
+	npm start
+
+This will open the dashboard in your browser at http://localhost:3000. The dashboard currently displays a header and a static churn rate, which serves as a placeholder for future dynamic data integration.
+Dashboard Overview
+Header: "Telco Customer Churn Dashboard"
+Static Data: Displays a churn rate (currently 15.5%)
+#Future Enhancements:
+Integrate dynamic data from the churn analysis pipeline (e.g., via a JSON file or API).
+Add interactive visualizations using charting libraries such as Chart.js or Recharts.
+
 
 
 ### **Model Performance**
