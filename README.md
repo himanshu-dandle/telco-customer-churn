@@ -69,14 +69,13 @@ telco-customer-churn/
 
 ###  **Learning Curves**  
 Understanding model training performance.  
-![Learning Curve](https://raw.githubusercontent.com/himanshu-dandle/telco-customer-churn/main/data/output/Learning_Curves.png)
-
+![Learning Curve](data/output/Learning_Curves.png)
 
 ###  **Feature Importance (Top Predictors of Churn)**  
 Identifying key factors affecting churn.  
 ![Feature Importance](data/output/feature_importance_xgboost.png)
 
-###  **Confusion Matrix for XG Boost **  
+###  **Confusion Matrix for XG Boost**  
 Evaluating model classification results.  
 ![Confusion Matrix](data/output/conf_matrix_xgboost.png)
 
