@@ -67,10 +67,6 @@ telco-customer-churn/
 
 ## 📈 **Key Visualizations**
 
-###  **Learning Curves**  
-Understanding model training performance.  
-![Learning Curve](data/output/Learning_Curves.png)
-
 ###  **Feature Importance (Top Predictors of Churn)**  
 Identifying key factors affecting churn.  
 ![Feature Importance](data/output/feature_importance_xgboost.png)
@@ -178,44 +174,35 @@ Open: http://127.0.0.1:8000/docs to test the API interactively.
 
 ### **Azure Deployment**
 
-1️⃣ Build & Push Docker Image to Azure Container Registry (ACR)
-
+1. Build & Push Docker Image to Azure Container Registry (ACR)
 # Login to Azure
 az login
-
 # Set variables
-ACR_NAME=himanshuacr
-IMAGE_NAME=churn-api
-RESOURCE_GROUP=MyResourceGroup
-
+🔹 ACR_NAME=himanshuacr
+🔹 IMAGE_NAME=churn-api
+🔹 RESOURCE_GROUP=MyResourceGroup
 # Login to ACR
 az acr login --name $ACR_NAME
-
 # Build & Push the Docker image
 docker build -t $ACR_NAME.azurecr.io/$IMAGE_NAME:latest .
 docker push $ACR_NAME.azurecr.io/$IMAGE_NAME:latest
-
-2️⃣ Deploy the Container to Azure Web 
-
+ 
+2. Deploy the Container to Azure Web 
 # Create an Azure Web App with Docker container
-az webapp create --resource-group $RESOURCE_GROUP --plan MyAppServicePlan \
+🔹 az webapp create --resource-group $RESOURCE_GROUP --plan MyAppServicePlan \
     --name telco-churn-api --deployment-container-image-name $ACR_NAME.azurecr.io/$IMAGE_NAME:latest
-
 # Set ACR authentication for the Web App
-az webapp config container set --name telco-churn-api --resource-group $RESOURCE_GROUP \
+🔹 az webapp config container set --name telco-churn-api --resource-group $RESOURCE_GROUP \
     --docker-custom-image-name $ACR_NAME.azurecr.io/$IMAGE_NAME:latest \
     --docker-registry-server-url https://$ACR_NAME.azurecr.io \
     --docker-registry-server-user <YOUR_ACR_USERNAME> \
     --docker-registry-server-password <YOUR_ACR_PASSWORD>
-
 # Restart the Web App
-az webapp restart --name telco-churn-api --resource-group $RESOURCE_GROUP
-
-3️⃣ Verify 
-az webapp show --name telco-churn-api --resource-group $RESOURCE_GROUP --query "defaultHostName"
-
-
-Your API should now be live at:
+🔹 az webapp restart --name telco-churn-api --resource-group $RESOURCE_GROUP
+3. Verify 
+	az webapp show --name telco-churn-api --resource-group $RESOURCE_GROUP --query "defaultHostName"
+	
+🔹 Your API should now be live at:
 https://telco-churn-api.azurewebsites.net/docs
 
 
@@ -268,9 +255,9 @@ Add interactive visualizations using charting libraries such as Chart.js or Rech
 
 
 ### Future Work
-Improve Model Performance (Try deep learning models like LSTMs)
-Deploy Interactive Dashboard (Streamlit for real-time churn predictions)
-Enhance API with More Features (Batch predictions, customer segmentation)
+🔹 Improve Model Performance (Try deep learning models like LSTMs)
+🔹 Deploy Interactive Dashboard (Streamlit for real-time churn predictions)
+🔹 Enhance API with More Features (Batch predictions, customer segmentation)
 
 
 
