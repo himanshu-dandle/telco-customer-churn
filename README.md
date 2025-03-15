@@ -58,7 +58,7 @@ telco-customer-churn/
 - **Columns:** 21 (customer demographics, account details, service usage)
 - **Target Variable:** `Churn` (1 = Customer left, 0 = Retained)
 
-### 📌 **Key Features:**
+###  **Key Features:**
 - **`tenure`** - Number of months the customer stayed  
 - **`MonthlyCharges`** - Amount charged per month  
 - **`TotalCharges`** - Total amount charged  
@@ -67,24 +67,24 @@ telco-customer-churn/
 
 ## 📈 **Key Visualizations**
 
-### 📌 **1️⃣ Learning Curves**  
+###  **Learning Curves**  
 Understanding model training performance.  
 ![Learning Curve](https://raw.githubusercontent.com/himanshu-dandle/telco-customer-churn/main/data/output/Learning_Curves.png)
 
 
-### 📌 **2️⃣ Feature Importance (Top Predictors of Churn)**  
+###  **Feature Importance (Top Predictors of Churn)**  
 Identifying key factors affecting churn.  
 ![Feature Importance](data/output/feature_importance_xgboost.png)
 
-### 📌 **3️⃣ Confusion Matrix for XG Boost **  
+###  **Confusion Matrix for XG Boost **  
 Evaluating model classification results.  
 ![Confusion Matrix](data/output/conf_matrix_xgboost.png)
 
-### 📌 **4️⃣ ROC Curve - All Models Comparison**  
+###  **ROC Curve - All Models Comparison**  
 Comparing AUC scores across multiple models.  
 ![ROC All Models](data/output/roc_all_models.png)
 
-### 📌 **5️⃣ ROC Curve - XGBoost (Best Model)**  
+###  **ROC Curve - XGBoost (Best Model)**  
 Performance of the best-performing model.  
 ![ROC XGBoost](data/output/roc_curve_xgboost.png)
 
@@ -124,17 +124,17 @@ Performance of the best-performing model.
 ## 🌐 **API Development**
 **FastAPI-based REST API** for churn prediction.
 
-### 📌 **Endpoints**
+###  **Endpoints**
 | Method | Endpoint   | Description |
 |--------|----------- |-------------|
 | GET    | `/`        | API Health Check |
 | POST   | `/predict` | Predicts if a customer will churn |
 
-### 🔐 **API Security**
+###  **API Security**
 - API Key Authentication (`X-API-KEY` header)
 - API Logs stored in `logs/api_logs.log`
 
-### 📌 **Example API Call**
+###  **Example API Call**
 curl -k -X POST "https://telco-churn-api.azurewebsites.net/predict" \
      -H "Content-Type: application/json" \
      -H "X-API-KEY: YOUR_API_KEY" \
@@ -231,10 +231,12 @@ In addition to the API, an interactive dashboard built with React and TypeScript
 	3. Start the Development Server:
 		npm start
 
-This will open the dashboard in your browser at http://localhost:3000. The dashboard currently displays a header and a static churn rate, which serves as a placeholder for future dynamic data integration.
-Dashboard Overview
-Header: "Telco Customer Churn Dashboard"
-Static Data: Displays a churn rate (currently 15.5%)
+This will open the dashboard in your browser at http://localhost:3000. 
+
+The dashboard currently displays a header and a static churn rate, which serves as a placeholder for future dynamic data integration.
+	Dashboard Overview
+	Header: "Telco Customer Churn Dashboard"
+	Static Data: Displays a churn rate (currently 15.5%)
 
 # Future Enhancements:
 Integrate dynamic data from the churn analysis pipeline (e.g., via a JSON file or API).
